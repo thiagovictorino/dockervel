@@ -6,7 +6,7 @@ With this repository, You will be able to set an environment with two containers
 
 For example:
 
-	                                                      | → app-prouction
+	                                                      | → app-production
 	http(s)://app.{staging}.domain.com:80/443 → traefik → |
 	                                                      | → app-staging
 
