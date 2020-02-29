@@ -1,8 +1,8 @@
 
 # Dockervel  
-A docker-compose.yml file ready to be used in production or locally by Laravel apps. It helps you to create a production ready environment with SSL with [Let's Encrypt](https://letsencrypt.org) and [Traefik](https://github.com/containous/traefik/) as a reserve proxy.
+A docker-compose.yml file ready to be used in production or locally by Laravel apps. It helps You to create a production ready environment with SSL with [Let's Encrypt](https://letsencrypt.org) and [Traefik](https://github.com/containous/traefik/) as a reserve proxy.
 
-With this repository, You will be able to set an environment with two containers running internally and exposing Traefik on por 80/443 that will forwards connection to each container depending of which url was reached.
+With this repository, You will be able to set an environment with two containers running internally and exposing Traefik on por 80/443 that will forwards connections to each container depending of which url was reached.
 
 For example:
 
