@@ -38,6 +38,7 @@ If everything was set rightly, You can access http(s)://app.your-domain.com.
    that is not in the scope of this package. You will need to do it by
    yourself.
  - You need to have a DNS configuration ready with domains/sub-domiains pointing to the host that you are try to config
+ - acme.json needs to have 600 permission for it to work. When you clone the repository, the file may have a different permission. If this happens, change it by using the command chmod 600 acme.json
  - Traefik will creates the SSL keys automatically. But maybe you will need to restart the container to renew those keys.
  - This package doesn't include a database container, You are free to add it on `docker-compose.yml`
  - How you are using a reverse proxy, You will probably need to set [trusted proxies](https://laravel.com/docs/master/requests#configuring-trusted-proxies)  
