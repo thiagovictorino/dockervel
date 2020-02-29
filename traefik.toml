@@ -1,0 +1,47 @@
+defaultEntryPoints = ["http", "https"]
+[entryPoints]
+  [entryPoints.dashboard]
+    address = ":8080"
+    [entryPoints.dashboard.auth]
+      [entryPoints.dashboard.auth.basic]
+        #
+        # Here you will need to set the user and password to access the monitor.
+        # It is using a auth basic auth. Than you need to hash this password.
+        # See: https://en.wikipedia.org/wiki/Basic_access_authentication
+        #
+        # Tip: There are some online generators to use like https://www.web2generators.com/apache-tools/htpasswd-generator
+        #
+        # For example, this default configuration is
+        # user: admin
+        # password: 123456
+        #
+        # Please, change it!!!
+        #
+        users = ["admin:$apr1$bk2g4wix$gpdM0KOlWctRCkVn1SedL."]
+  [entryPoints.http]
+      address = ":80"
+        [entryPoints.http.redirect]
+          entryPoint = "https"
+    [entryPoints.https]
+      address = ":443"
+        [entryPoints.https.tls]
+[acme]
+#
+# Here you need to set the e-mail that will be included
+# on Let's Encrypt when it will creates the ssl keys
+#
+email = "email@your-domain.com"
+storage = "acme.json"
+entryPoint = "https"
+onHostRule = true
+  [acme.httpChallenge]
+  entryPoint = "http"
+[docker]
+#
+# Here you need to set mais url (without sub damain)
+#
+domain = "your-domain.com"
+watch = true
+network = "web"
+[api]
+entrypoint="dashboard"

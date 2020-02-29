@@ -1,0 +1,56 @@
+
+version: '3'
+
+services:
+
+  traefik:
+    image: traefik:1.7.6-alpine
+    container_name: {APP_NAME}-traefik
+    volumes:
+      - ./traefik.toml:/traefik.toml
+      - ./acme.json:/acme.json
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+    networks:
+      - web
+    ports:
+      - "80:80"
+      - "443:443"
+    labels:
+      - traefik.frontend.rule=Host:{MONITOR_URL}
+      - traefik.port=8080
+
+  production:
+    image: {APP_DOCKER_IMAGE}
+    container_name: {APP_NAME}-production
+    restart: always
+    volumes:
+      - ${APP_DIR_PRODUCTION}:/var/www/app
+    networks:
+      - internal
+      - web
+    labels:
+      - traefik.backend=production
+      - traefik.frontend.rule=Host:{APP_URL_PRODUCTION}
+      - traefik.docker.network=web
+      - traefik.port=8080
+
+  staging:
+    image: {APP_DOCKER_IMAGE}
+    container_name: {APP_NAME}-staging
+    restart: always
+    volumes:
+      - ${APP_DIR_STAGING}:/var/www/app
+    networks:
+      - internal
+      - web
+    labels:
+      - traefik.backend=staging
+      - traefik.frontend.rule=Host:{APP_URL_STAGING}
+      - traefik.docker.network=web
+      - traefik.port=8080
+
+networks:
+  web:
+    external: true
+  internal:
+    external: false
