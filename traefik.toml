@@ -6,10 +6,10 @@ defaultEntryPoints = ["http", "https"]
       [entryPoints.dashboard.auth.basic]
         #
         # Here you will need to set the user and password to access the monitor.
-        # It is using a auth basic auth. Than you need to hash this password.
+        # It is using a auth basic. Than you need to hash this password.
         # See: https://en.wikipedia.org/wiki/Basic_access_authentication
         #
-        # Tip: There are some online generators to use like https://www.web2generators.com/apache-tools/htpasswd-generator
+        # Tip: There are some online generators to use, like https://www.web2generators.com/apache-tools/htpasswd-generator
         #
         # For example, this default configuration is
         # user: admin
