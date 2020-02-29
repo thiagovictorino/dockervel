@@ -38,7 +38,7 @@ onHostRule = true
   entryPoint = "http"
 [docker]
 #
-# Here you need to set mais url (without sub damain)
+# Here you need to set your main url (without sub damain)
 #
 domain = "your-domain.com"
 watch = true
