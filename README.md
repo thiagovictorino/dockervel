@@ -40,7 +40,7 @@ If everything was set rightly, You can access http(s)://app.your-domain.com.
  - You need to have a DNS configuration ready with domains/sub-domiains pointing to the host that you are try to config
  - Traefik will creates the SSL keys automatically. But maybe you will need to restart the container to renew those keys.
  - This package doesn't include a database container, You are free to add it on `docker-compose.yml`
- - How you are using a reverse proxy, You will probably will need to set [trusted proxies](https://laravel.com/docs/master/requests#configuring-trusted-proxies)  
+ - How you are using a reverse proxy, You will probably need to set [trusted proxies](https://laravel.com/docs/master/requests#configuring-trusted-proxies)  
 
 ## Credits
 
